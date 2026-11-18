@@ -41,8 +41,7 @@ h2 {
 }
 
 .sidebar {
-  width: 300px;
-  flex-shrink: 0;
+  width: 310px;
   padding: 1rem;
   border-right: 1px solid #999;
   background: #fffefe;
@@ -58,11 +57,25 @@ h2 {
 
 .filter-subtitle {
   font-size: 0.875rem;
-  color: rgb(0, 0, 0);
+  color: #000000;
 }
+.filter-columns {
+  display: flex;
+  align-items: flex-start;
+  gap: 24px;
+}
+
+.filter-column {
+  display: flex;
+  flex-direction: column;
+}
+.filter-children {
+  display: flex;
+  flex-direction: column;
+  margin-left: 24px;
+}
+
 .filter-box {
-  width: 100%;
-  max-width: 360px;
   display: flex;
   flex-direction: column;
 }

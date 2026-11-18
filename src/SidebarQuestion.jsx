@@ -3,6 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
+import { Map } from "./Map";
 
 const YEARS = ["2021", "2022", "2023", "2024", "2025"];
 const DAYS = [
@@ -51,70 +52,77 @@ export const SidebarQuestion = () => {
   return (
     <aside className="sidebar">
       <h2>Filter</h2>
-      <Box className="filter-box" role="group" aria-label="filter">
-        <Typography className="filter-title">Zeitauswahl</Typography>
-        <Typography className="filter-subtitle">Jahr</Typography>
 
-        <FormControlLabel
-          label="Alle / Keine"
-          control={
-            <Checkbox
-              size="small"
-              checked={allCheckedYears}
-              indeterminate={someCheckedYears && !allCheckedYears}
-              onChange={handleAllYears}
-            />
-          }
-        />
+      <Box className="filter-box">
+        <Typography className="filter-title">Zeitraum</Typography>
 
-        <Box className="filter-box" role="group" aria-label="filter">
-          {YEARS.map((year) => (
+        <Box className="filter-columns">
+          <Box className="filter-column">
+            <Typography className="filter-subtitle">Jahr</Typography>
+
             <FormControlLabel
-              key={year}
-              label={year}
+              label="Alle / Keine"
               control={
                 <Checkbox
                   size="small"
-                  name={year}
-                  checked={years[year]}
-                  onChange={handleChangeYears}
+                  checked={allCheckedYears}
+                  indeterminate={someCheckedYears && !allCheckedYears}
+                  onChange={handleAllYears}
                 />
               }
             />
-          ))}
-        </Box>
+          <Box className="filter-children">
+            {YEARS.map((year) => (
+              <FormControlLabel
+                key={year}
+                label={year}
+                control={
+                  <Checkbox
+                    size="small"
+                    name={year}
+                    checked={years[year]}
+                    onChange={handleChangeYears}
+                  />
+                }
+              />
+            ))}
+          </Box>
+          </Box>
+          <Box className="filter-column">
+            <Typography className="filter-subtitle">Wochentag</Typography>
 
-        <Typography className="filter-subtitle">Wochentag</Typography>
-        <FormControlLabel
-          label="Alle / Keine"
-          control={
-            <Checkbox
-              size="small"
-              checked={allCheckedDays}
-              indeterminate={someCheckedDays && !allCheckedDays}
-              onChange={handleAllDays}
-            />
-          }
-        />
-
-        <Box className="filter-box" role="group" aria-label="filter">
-          {DAYS.map((day) => (
             <FormControlLabel
-              key={day}
-              label={day}
+              label="Alle / Keine"
               control={
                 <Checkbox
                   size="small"
-                  name={day}
-                  checked={days[day]}
-                  onChange={handleChangeDays}
+                  checked={allCheckedDays}
+                  indeterminate={someCheckedDays && !allCheckedDays}
+                  onChange={handleAllDays}
                 />
               }
             />
-          ))}
+          <Box className="filter-children">
+            {DAYS.map((day) => (
+              <FormControlLabel
+                key={day}
+                label={day}
+                control={
+                  <Checkbox
+                    size="small"
+                    name={day}
+                    checked={days[day]}
+                    onChange={handleChangeDays}
+                  />
+                }
+              />
+            ))}
+          </Box>
+          </Box>
         </Box>
-        <Typography className="filter-title">Zone</Typography>
       </Box>
+      <Typography className="filter-title">Zoneauswahl</Typography>
+      <Map />
     </aside>
   );
 };
