@@ -22,7 +22,7 @@ return (
     <div className="app__content">
       {page === "Home" && (
         <main>
-          <CenterHome />
+          <CenterHome setPage={setPage}/>
         </main>
       )}
 
