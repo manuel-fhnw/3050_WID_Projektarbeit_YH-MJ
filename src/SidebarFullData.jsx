@@ -7,7 +7,7 @@ import { Map } from "./Map";
 
 const TOPIC = ["A", "B", "C", "D", "E"];
 
-export const SidebarFullData = () => {
+export const SidebarFullData = ({setFilter}) => {
   const [topics, setTopics] = React.useState(
     Object.fromEntries(TOPIC.map((t) => [t, false])),
   );
@@ -24,6 +24,13 @@ export const SidebarFullData = () => {
   const handleAllTopics = (event) => {
     setTopics(Object.fromEntries(TOPIC.map((t) => [t, event.target.checked])));
   };
+
+  React.useEffect(() => {
+      setFilter((prev) => ({
+      ...prev,
+      topics: Object.keys(topics).filter((t) => topics[t]),
+    }));
+    }, [topics, setFilter]);
 
   return (
     <aside className="sidebar">
@@ -63,7 +70,7 @@ export const SidebarFullData = () => {
         </Box>
       </Box>
       <Typography className="filter-title">Zoneauswahl</Typography>
-      <Map />
+      <Map setFilter={setFilter}/>
     </aside>
   );
 };

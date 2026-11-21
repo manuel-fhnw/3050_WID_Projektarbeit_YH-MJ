@@ -122,3 +122,8 @@ footer {
   padding: 1px 4px;
   border-radius: 1px;
 }
+
+.leaflet-tooltip.zonen-label--active{
+  color: var(--accent);
+  font-weight: 600;
+}

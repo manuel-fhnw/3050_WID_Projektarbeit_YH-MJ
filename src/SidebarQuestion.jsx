@@ -16,7 +16,7 @@ const DAYS = [
   "Sonntag",
 ];
 
-export const SidebarQuestion = () => {
+export const SidebarQuestion = ({setFilter}) => {
   const [years, setYears] = React.useState(
     Object.fromEntries(YEARS.map((y) => [y, false])),
   );
@@ -48,6 +48,14 @@ export const SidebarQuestion = () => {
   const handleAllDays = (event) => {
     setDays(Object.fromEntries(DAYS.map((d) => [d, event.target.checked])));
   };
+
+  React.useEffect(() => {
+    setFilter((prev) => ({
+    ...prev,
+    years: Object.keys(years).filter((y) => years[y]),
+    days: Object.keys(days).filter((d) => days[d]),
+  }));
+  }, [years, days, setFilter]);
 
   return (
     <aside className="sidebar">
@@ -122,7 +130,7 @@ export const SidebarQuestion = () => {
         </Box>
       </Box>
       <Typography className="filter-title">Zoneauswahl</Typography>
-      <Map />
+      <Map setFilter={setFilter}/>
     </aside>
   );
 };

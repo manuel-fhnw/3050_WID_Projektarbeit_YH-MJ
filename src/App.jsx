@@ -14,6 +14,7 @@ function App() {
 //useEffect sorgt dafür, dass beim Refresh der Seite nicht zurück zum Home springt
 const [page, setPage] = useState(() => localStorage.getItem("page") || "Home");
 useEffect(() => {localStorage.setItem("page", page);}, [page]);
+const [filter, setFilter] = useState({ years: [], days: [], zones: [], topics: [] });
 
 return (
   <div className="app">
@@ -28,18 +29,18 @@ return (
 
       {page === "Fragestellung" && (
         <>
-          <SidebarQuestion />
+          <SidebarQuestion setFilter ={setFilter}/>
           <main>
-            <CenterQuestion />
+            <CenterQuestion filter = {filter}/>
           </main>
         </>
       )}
 
       {page === "Ganzer Datensatz" && (
         <>
-          <SidebarFullData />
+          <SidebarFullData setFilter ={setFilter}/>
           <main>
-            <CenterFullData />
+            <CenterFullData filter = {filter} />
           </main>
         </>
       )}
