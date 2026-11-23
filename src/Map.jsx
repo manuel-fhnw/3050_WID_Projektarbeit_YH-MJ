@@ -10,7 +10,7 @@ const ALLE_IDS = flaechen.features.map(
   (f) => f.properties.hystreet_location_id,
 );
 
-export const Map = ({ setFilter }) => {
+export const Map = ({ setFilter, width = 250, height = 450, selectable = true }) => {
   const [selected, setSelected] = useState(ALLE_IDS);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ export const Map = ({ setFilter }) => {
     );
 
   return (
-    <div className="map-box">
+    <div className="map-box" style={{ width, height }}>
       <MapContainer
         center={ZUERICH}
         zoom={15}
@@ -41,6 +41,7 @@ export const Map = ({ setFilter }) => {
         <GeoJSON
           key={selected.join(",")}
           data={flaechen}
+          interactive={selectable}
           style={(f) => ({
             color: "#00838f",
             weight: 2,
@@ -50,7 +51,7 @@ export const Map = ({ setFilter }) => {
           })}
           onEachFeature={(f, layer) => {
             const id = f.properties.hystreet_location_id;
-            layer.on("click", () => toggle(id));
+            if (selectable) {layer.on("click", () => toggle(id));}
             layer.bindTooltip(f.properties.name, {
               permanent: true,
               direction: id === 670 ? "left" : "right",

@@ -5,7 +5,7 @@ const pages = ["Home", "Fragestellung", "Ganzer Datensatz",];
 
 export const Header = ({page, setPage}) => (
   <header className="header">
-    <h1>3050 -  WID Projektarbeit</h1>
+    <h1>Passantenfrequenzen an der Bahnhofstrasse, Zürich</h1>
 
     <ButtonGroup variant="text" color="var(--disabled)" aria-label="Seitennavigation">
       {pages.map((name) => (
