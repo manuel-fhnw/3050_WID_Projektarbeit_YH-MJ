@@ -1,4 +1,4 @@
-import { Map } from './Map'
+import { CenterMap } from './CenterMap'
 
 export const CenterHome = ({ setPage }) => (
   <div className="centerhome">
@@ -51,7 +51,7 @@ export const CenterHome = ({ setPage }) => (
 
     <div className="homemap">
       <h2>Die Messgebiete</h2>
-      <Map width="100%" height="75vh" selectable={false} />
+      <CenterMap width="100%" height="75vh" selectable={false} />
     </div>
   </div>
 )

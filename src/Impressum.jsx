@@ -16,16 +16,5 @@ export const Impressum = () => (
     <p>Passantenfrequenzen an der Bahnhofstrasse – Stundenwerte, Stadt Zürich, Open Data Portal, <a href="https://data.stadt-zuerich.ch/dataset/hystreet_fussgaengerfrequenzen">Link</a> Abgerufen am 18.11.2026 </p>
     <p>hystreet_locations.json, Stadt Zürich, Open Data Portal, <a href="https://data.stadt-zuerich.ch/dataset/hystreet_fussgaengerfrequenzen">Link</a> Abgerufen am 18.11.2026 </p>
     <p>Kartenhintergrund: © swisstopo</p>
-    
-    <br/> 
-    
-    <h3>Hilfsmittel</h3>
-    <p>Bei der Umsetzung wurde generative KI (Claude, Anthropic) unterstützend eingesetzt:</p>
-      <ul>
-        <li>zur Fehlersuche im Code,</li>
-        <li>zur Erklärung von Funktionen und Konzepten,</li>
-        <li>als Hilfe bei der Formulierung von Texten.</li>
-      </ul>
-    <p>Alle Vorschläge wurden von den Autoren geprüft und angepasst.</p>
   </div>
 )

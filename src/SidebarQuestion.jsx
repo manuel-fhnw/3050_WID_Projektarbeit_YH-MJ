@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { Map } from "./Map";
+import { CenterMap } from "./CenterMap";
 
 const YEARS = ["2021", "2022", "2023", "2024", "2025"];
 const DAYS = [
@@ -129,8 +129,9 @@ export const SidebarQuestion = ({setFilter}) => {
           </Box>
         </Box>
       </Box>
+      <br/>
       <Typography className="filter-title">Zoneauswahl</Typography>
-      <Map setFilter={setFilter}/>
+      <CenterMap setFilter={setFilter}/>
     </aside>
   );
 };

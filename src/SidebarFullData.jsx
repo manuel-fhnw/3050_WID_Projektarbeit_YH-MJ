@@ -3,7 +3,7 @@ import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Checkbox from "@mui/material/Checkbox";
 import FormControlLabel from "@mui/material/FormControlLabel";
-import { Map } from "./Map";
+import { CenterMap } from "./CenterMap";
 
 const TOPIC = ["A", "B", "C", "D", "E"];
 
@@ -69,8 +69,9 @@ export const SidebarFullData = ({setFilter}) => {
           </Box>
         </Box>
       </Box>
+      <br/>
       <Typography className="filter-title">Zoneauswahl</Typography>
-      <Map setFilter={setFilter}/>
+      <CenterMap setFilter={setFilter}/>
     </aside>
   );
 };

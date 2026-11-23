@@ -1,22 +1,20 @@
 /* ==========================================================
-   App.css – Gliederung
+   App.css – Struktur
    1. Variablen
-   2. Basis (html, body, Überschriften, Links)
-   3. App-Layout (Grundgerüst)
+   2. Basis
+   3. App-Layout
    4. Header
    5. Sidebar und Filter
    6. Hauptbereich und Footer
    7. Karte (Leaflet)
    8. Seite "Home"
-   ========================================================== */
-
+========================================================== */
 
 /* ---------- 1. Variablen ---------- */
 #root {
   --disabled: #9e9e9e;
   --accent: #00838f;
 }
-
 
 /* ---------- 2. Basis ---------- */
 html,
@@ -31,15 +29,21 @@ h2 {
   margin-top: 0;
 }
 
-p, ul, li, code {
+h4 {
+  font-size: 1.1rem;
+}
+
+p,
+ul,
+li,
+code {
   font-size: 1.1rem;
   text-align: justify;
 }
 
-h4{
-  font-size: 1.1rem;
+a {
+  color: var(--accent);
 }
-
 
 /* ---------- 3. App-Layout ---------- */
 .app {
@@ -53,7 +57,6 @@ h4{
   flex-direction: row;
   flex: 1;
 }
-
 
 /* ---------- 4. Header ---------- */
 .header {
@@ -69,7 +72,6 @@ h4{
 .header h1 {
   color: var(--accent);
 }
-
 
 /* ---------- 5. Sidebar und Filter ---------- */
 .sidebar {
@@ -95,8 +97,9 @@ h4{
 
 .filter-subtitle {
   font-size: 0.875rem;
-  color: #000000;
+  color: #000;
 }
+
 .filter-columns {
   display: flex;
   align-items: flex-start;
@@ -107,15 +110,11 @@ h4{
   display: flex;
   flex-direction: column;
 }
+
 .filter-children {
   display: flex;
   flex-direction: column;
   margin-left: 24px;
-}
-
-.filter-box {
-  display: flex;
-  flex-direction: column;
 }
 
 .filter-box .MuiFormControlLabel-root {
@@ -130,7 +129,6 @@ h4{
   padding-top: 0.8px;
   padding-bottom: 0.8px;
 }
-
 
 /* ---------- 6. Hauptbereich und Footer ---------- */
 main {
@@ -147,7 +145,6 @@ footer {
   padding: 0 1rem;
 }
 
-
 /* ---------- 7. Karte (Leaflet) ---------- */
 .map-box {
   margin-top: auto;
@@ -157,13 +154,16 @@ footer {
   position: relative;
 }
 
-/* Beschriftung der Zonen (Name in bindTooltip: "zonen-label") */
 .leaflet-tooltip.zonen-label {
   font-size: 10px;
   padding: 1px 4px;
   border-radius: 1px;
 }
 
+.leaflet-tooltip.zonen-label--active {
+  color: var(--accent);
+  font-weight: 600;
+}
 
 /* ---------- 8. Seite "Home" ---------- */
 .centerhome {
@@ -178,15 +178,4 @@ footer {
 
 .homemap {
   flex: 3;
-}
-
-/* Links im Text in der Akzentfarbe */
-.hometext a,
-.center a {
-  color: var(--accent);
-}
-
-.leaflet-tooltip.zonen-label--active{
-  color: var(--accent);
-  font-weight: 600;
 }

@@ -10,7 +10,7 @@ const ALLE_IDS = flaechen.features.map(
   (f) => f.properties.hystreet_location_id,
 );
 
-export const Map = ({ setFilter, width = 250, height = 450, selectable = true }) => {
+export const CenterMap = ({ setFilter, width = 250, height = 450, selectable = true }) => {
   const [selected, setSelected] = useState(ALLE_IDS);
 
   useEffect(() => {
